@@ -11,7 +11,7 @@ import UIKit
 class FactView: UITextView {
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: nil)
+        super.init(frame: frame, textContainer: textContainer)
         textAlignment = .Center
         backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
         textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
@@ -31,3 +31,6 @@ class FactView: UITextView {
         })
     }
 }
+
+
+

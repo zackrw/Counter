@@ -9,38 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     var numberView: NumberView!
     var factView: FactView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        numberView = NumberView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height / 2))
+        view.addSubview(numberView)
+        factView = FactView(frame: CGRectMake(0, view.frame.height / 2, view.frame.width, view.frame.height / 2), textContainer: nil)
+        view.addSubview(factView)
         let tap = UITapGestureRecognizer(target: self, action: Selector("tap:"))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
         view.addGestureRecognizer(tap)
-
-        numberView = NumberView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
-        view.addSubview(numberView)
-        
-        
-        factView = FactView(frame: CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: view.frame.height / 2))
-        view.addSubview(factView)
     }
     
     func tap(recognizer: UITapGestureRecognizer) {
         numberView.increment()
         factView.showFactForValue(numberView.value)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
+
+
 
